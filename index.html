@@ -8,6 +8,7 @@
       html, body, #map { width: 100%; height: 100%; margin: 0; background: #fff; }
     </style>
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
 </head>
 <body>
 <!-- Our web map and content will go here -->
@@ -24,6 +25,15 @@ var mymap = L.map('map', {
 
 // 2. Add a base map.
 L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png').addTo(mymap);
+// 3. Add cell towers GeoJSON Data
+// Null variable that will hold cell tower data
+var airports = null;
+// Get GeoJSON and put on it on the map when it loads
+airports= L.geoJson.ajax("assets/airports.geojson",{
+    attribution: 'Airport Data &copy; HIFLD | US States &copy; Washington Data & Research | Base Map &copy; CartoDB | Made By Bo Zhao'
+});
+// Add the cellTowers to the map.
+airports.addTo(mymap);
 </script>
 </body>
 </html>
