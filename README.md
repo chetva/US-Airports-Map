@@ -1,6 +1,6 @@
 # US Airports Map
 
-https://chetva.github.io/simplewebmap/
+https://chetva.github.io/US-Airports-Map/
 
 ![Image](img/us-airports.png)
 
