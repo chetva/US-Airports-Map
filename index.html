@@ -1,39 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>US Airports</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.0/dist/leaflet.css"/>
-    <style>
-      html, body, #map { width: 100%; height: 100%; margin: 0; background: #fff; }
-    </style>
-    <script src="https://unpkg.com/leaflet@1.7.0/dist/leaflet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
-</head>
-<body>
-<!-- Our web map and content will go here -->
-<div id="map"></div>
-<script>
-// 1. Create a map object.
-var mymap = L.map('map', {
-    center: [39.50, -98.35],
-    zoom: 5,
-    maxZoom: 10,
-    minZoom: 3,
-    detectRetina: true // detect whether the sceen is high resolution or not.
-});
 
-// 2. Add a base map.
-L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png').addTo(mymap);
-// 3. Add cell towers GeoJSON Data
-// Null variable that will hold cell tower data
-var airports = null;
-// Get GeoJSON and put on it on the map when it loads
-airports= L.geoJson.ajax("simplewebmap/assets/airports.geojson",{
-    attribution: 'Airport Data &copy; HIFLD | US States &copy; Washington Data & Research | Base Map &copy; CartoDB | Made By Bo Zhao'
-});
-// Add the cellTowers to the map.
-airports.addTo(mymap);
-</script>
+<head>
+  <meta charset="UTF-8">
+  <title>US Airports</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.0/dist/leaflet.css" />
+  <style>
+    html,
+    body,
+    #map {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background: #fff;
+    }
+  </style>
+  <script src="https://unpkg.com/leaflet@1.7.0/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+</head>
+
+<body>
+  <!-- Our web map and content will go here -->
+  <div id="map"></div>
+  <script>
+    // 1. Create a map object.
+    var mymap = L.map('map', {
+      center: [39.50, -98.35],
+      zoom: 5,
+      maxZoom: 10,
+      minZoom: 3,
+      detectRetina: true // detect whether the sceen is high resolution or not.
+    });
+
+    // 2. Add a base map.
+    L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png').addTo(mymap);
+    // 3. Add cell towers GeoJSON Data
+    // Null variable that will hold cell tower data
+    var airports = null;
+    // Get GeoJSON and put on it on the map when it loads
+    airports = L.geoJson.ajax("simplewebmap/assets/airports.geojson", {
+      attribution: 'Airport Data &copy; HIFLD | US States &copy; Washington Data & Research | Base Map &copy; CartoDB | Made By Bo Zhao'
+    });
+    // Add the cellTowers to the map.
+    airports.addTo(mymap);
+  </script>
 </body>
+
 </html>
