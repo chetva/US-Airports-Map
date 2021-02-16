@@ -57,10 +57,13 @@
   <div id="map"></div>
   <script>
     // Create variable to hold map element, give initial settings to map
-    var map = L.map('mapid', {
-      center: [44.56576, -123.27888],
-      zoom: 16
-    });
+    // 1. Create a map object.
+    var mymap = L.map('map', {
+        center: [47.7511, -120.7401],
+        zoom: 7,
+        maxZoom: 10,
+        minZoom: 3,
+        detectRetina: true});
     // Add OpenStreetMap tile layer to map element
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: 'Map Maker: Bo Zhao| &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
